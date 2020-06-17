@@ -9,6 +9,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect "/users/#{@user.id}"
       else 
+        redirect '/login'
       end 
     end 
 
@@ -19,11 +20,11 @@ class UsersController < ApplicationController
     post '/users' do 
       if params[:name] != "" && params[:email] != "" && params[:password] != ""
         @user = User.create(params)
+        session[:user_id] = @user.id
         redirect "/users/#{@user.id}"
+      else 
+        redirect '/signup'
     end 
 
 
-    #get '/users/:id' do
-    # erb :'/users/show'
-    #end 
 end 
