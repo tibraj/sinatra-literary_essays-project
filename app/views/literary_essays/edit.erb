@@ -1,0 +1,10 @@
+FORM
+
+    <form action="/literary_essays/<%= @literary_essay.id %>" method="POST">
+        <input type=:"hidden" name="_method" value="PATCH">
+        <label for="title">Title:</label>
+        <textarea name="title" rows=2 columns=10><%= @literary_essay.title %></textarea>
+        <label for="content">Content:</label>
+        <textarea name="content" rows=5 columns=10><%= @literary_essay.content %></textarea>
+        <input type="submit" value="Edit Essay">
+    </form>
