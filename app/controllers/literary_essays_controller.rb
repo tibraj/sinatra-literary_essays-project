@@ -1,0 +1,3 @@
+class LiteraryEssaysController < ApplicationController
+
+end 
