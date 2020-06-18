@@ -24,6 +24,7 @@ class UsersController < ApplicationController
         redirect "/users/#{@user.id}"
       else 
         redirect '/signup'
+      end 
     end 
 
     get '/users/:id' do
@@ -31,8 +32,8 @@ class UsersController < ApplicationController
       erb :'/users/show'
     end 
 
-    get '/logout' do
+    get '/logout' do 
       session.clear
       redirect '/'
-    end 
+    end
 end 
