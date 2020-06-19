@@ -1,1 +1,8 @@
 INDEX 
+
+<% @literary_essays.each do |literary_essay| %>
+    <%= literary_essay.created_at %>
+    <a href="/literary_essays/<%= @literary_essay.id %>"><%= literary_essay.title %></a>
+    <%= literary_essay.content %>
+    <%= literary_essay.user.name %>
+<% end %>
