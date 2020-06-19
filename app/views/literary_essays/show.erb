@@ -5,7 +5,12 @@ SHOW
 <%= @literary_essay.content %>
 
 <% if current_user == @literary_essay.user %>
-<a href="/literary_essays/#{@literary_essay.id}/edit">Edit Essay</a>
+<a href="/literary_essays/<%= @literary_essay.id %>/edit">Edit Essay</a>
 
-<a href="/literary_essays/#{@literary_essay.id}/delete">Delete Essay</a>
+<br>
+
+<form action="/literary_essays/<%= @literary_essay.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Essay">
+</form>
 <% end %>
