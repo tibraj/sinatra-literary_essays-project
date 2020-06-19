@@ -1,7 +1,12 @@
 class LiteraryEssaysController < ApplicationController
 
+    get '/literary_essays' do
+        @literary_essays = LiteraryEssay.all 
+        erb :'/literary_essays/index'
+    end 
+    
     get "/literary_essays/new" do 
-      erb :'/literary_essays/new'
+        erb :'/literary_essays/new'
     end 
 
     post '/literary_essays' do 
