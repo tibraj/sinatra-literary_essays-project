@@ -15,9 +15,11 @@
   </head>
   <body>
     <div class ="nav">
-      <a href="/logout">Log Out</a>
-      <a href="/literary_essays">All Literary Essays</a>
-      <a href="/literary_essays/new">New Essay</a>
+      <% if logged_in? %>
+        <a href="/logout">Log Out</a>
+        <a href="/literary_essays">All Literary Essays</a>
+        <a href="/literary_essays/new">New Essay</a>
+      <% end %>
       </div>
     <div class="wrapper">
 
