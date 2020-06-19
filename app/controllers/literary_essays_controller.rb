@@ -53,6 +53,16 @@ class LiteraryEssaysController < ApplicationController
         end
     end 
 
+    delete '/literary_essays/:id' do
+        set_literary_essay
+        if @literary_essay.user == current_user
+            @literary_essay.destroy
+            redirect '/literary_essays'
+        else 
+            redirect '/literary_essays'
+        end
+    end 
+
     private
     
     def set_literary_essay
