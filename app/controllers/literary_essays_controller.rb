@@ -14,9 +14,11 @@ class LiteraryEssaysController < ApplicationController
             redirect '/'
         end 
         if params[:title] != "" && params[:content] != ""
+            flash[:message] = "Essay successfully created!"
             @literary_essay = LiteraryEssay.create(title: params[:title], content: params[:content], user_id: current_user.id)
             redirect "/literary_essays/#{@literary_essay.id}"
         else 
+            flash[:message] = "Can't create empty essay. Please try again."
             redirect '/literary_essays/new'
         end
     end 
@@ -42,7 +44,7 @@ class LiteraryEssaysController < ApplicationController
     patch '/literary_essays/:id' do 
         set_literary_essay
         if logged_in?
-            if @literary_essay.user == current_user
+            if @literary_essay.user == current_user && params[:title] != "" && params[:content] != ""
                 @literary_essay.update({title: params[:title], content: params[:content]})
                 redirect "/literary_essays/#{@literary_essay.id}"
             else 

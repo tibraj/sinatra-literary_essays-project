@@ -21,6 +21,9 @@
         <a href="/literary_essays/new">New Essay</a>
       <% end %>
       </div>
+    <% if flash[:message] %>
+      <%= flash[:message] %>
+    <% end %>
     <div class="wrapper">
 
         <%= yield %>
