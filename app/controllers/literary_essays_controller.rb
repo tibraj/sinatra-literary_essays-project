@@ -16,9 +16,10 @@ class LiteraryEssaysController < ApplicationController
         if params[:title] != "" && params[:content] != ""
             flash[:message] = "Essay successfully created!"
             @literary_essay = LiteraryEssay.create(title: params[:title], content: params[:content], user_id: current_user.id)
+            #flash[:message] = "" if @literary_essay.id
             redirect "/literary_essays/#{@literary_essay.id}"
         else 
-            flash[:message] = "Can't create empty essay. Please try again."
+            flash[:message] = "Invalid Entry. Title and Content can't be blank. Please try again."
             redirect '/literary_essays/new'
         end
     end 
@@ -48,7 +49,8 @@ class LiteraryEssaysController < ApplicationController
                 @literary_essay.update({title: params[:title], content: params[:content]})
                 redirect "/literary_essays/#{@literary_essay.id}"
             else 
-                redirect "users/#{current_user.id}"
+                flash[:message] = "Invalid Entry. Title and Content can't be blank. Please try again."
+                redirect "/literary_essays/#{@literary_essay.id}/edit"
             end 
         else 
             redirect '/'

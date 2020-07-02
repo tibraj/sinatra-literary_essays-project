@@ -1,9 +1,9 @@
 SHOW
 <br>
-<%= @literary_essay.title %>
+<h1><%= @literary_essay.title %></h1>
 <br>
-<%= @literary_essay.content %>
-
+<p><%= @literary_essay.content %><p>
+<br>
 <% if current_user == @literary_essay.user %>
 <a href="/literary_essays/<%= @literary_essay.id %>/edit">Edit Essay</a>
 

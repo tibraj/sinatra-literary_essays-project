@@ -24,6 +24,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect "/users/#{@user.id}"
       else 
+        flash[:message] = "Invalid entry. Name, e-mail and password can't be blank. Please try again."
         redirect '/signup'
       end 
     end 

@@ -1,5 +1,21 @@
-Show Page
+Home Page
 <br>
-<%= @user.name %>
+<h1><%= @user.name %>'s Essays:</h1>
+
+<% essays = @user.literary_essays %>
+<% essays.each do |essay| %>
+    <h2><%= essay.title %><h2>
+    <br>
+    <p><%= essay.content %></p>
+    <br>
+    <p><%= essay.created_at.to_date %></p>
+<% end %> 
 <br>
-<%= @user.email %>
+
+
+
+
+
+
+
+
